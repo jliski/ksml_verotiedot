@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import scraperwiki
 import lxml.html
+import re
 sivu = 1
 while (sivu < 11):
     url = 'http://www.ksml.fi/erikoissivut/verotiedot/suomi/?page=' + str(sivu)
@@ -15,7 +16,7 @@ while (sivu < 11):
                 'nimi' : tds[1].text_content(),
                 'syntymavuosi' : int(tds[2].text_content()),
                 'maakunta' : tds[3].text_content(),
-                'kokonaistulot' : (tds[4].text_content()).replace(" ",""),
+                'kokonaistulot' : (tds[4].text_content()).re.sub("\D", ""),
                 'ansiotulot' : (tds[5].text_content()),
                 'paaomatulot' : (tds[6].text_content()),
                 'veroprosentti' : tds[7].text_content(),
