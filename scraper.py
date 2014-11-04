@@ -19,7 +19,7 @@ while (sivu < 11):
                 'syntymavuosi' : int(tds[2].text_content()),
                 'maakunta' : tds[3].text_content(),
                 'kokonaistulot' : kokotulo,
-                'ansiotulot' : (tds[5].text_content()),
+                'ansiotulot' : re.sub("[^0123456789\.]", "", (tds[5].text_content())),
                 'paaomatulot' : (tds[6].text_content()),
                 'veroprosentti' : tds[7].text_content(),
                 'tulot_veron_jalkeen' : (tds[8].text_content())
