@@ -12,7 +12,7 @@ while (sivu < 11):
         tds = tr.cssselect("td")
         if len(tds)==9:
             tulot = tds[4].text_content()
-            kokotulo = re.sub("[^0123456789\.]", "")
+            kokotulo = re.sub("[^0123456789\.]", "", tulot)
             data = {
                 'sija' : int(tds[0].text_content()),
                 'nimi' : tds[1].text_content(),
