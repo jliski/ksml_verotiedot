@@ -11,12 +11,14 @@ while (sivu < 11):
     for tr in root.cssselect("div[class='table-responsive'] tr"):
         tds = tr.cssselect("td")
         if len(tds)==9:
+            tulot = tds[4].text_content()
+            kokotulo = re.sub("[^0123456789\.]", "")
             data = {
                 'sija' : int(tds[0].text_content()),
                 'nimi' : tds[1].text_content(),
                 'syntymavuosi' : int(tds[2].text_content()),
                 'maakunta' : tds[3].text_content(),
-                'kokonaistulot' : (tds[4].text_content()).re.sub("\D", ""),
+                'kokonaistulot' : kokotulo,
                 'ansiotulot' : (tds[5].text_content()),
                 'paaomatulot' : (tds[6].text_content()),
                 'veroprosentti' : tds[7].text_content(),
