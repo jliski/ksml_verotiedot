@@ -15,7 +15,7 @@ while (sivu < 11):
                 'nimi' : tds[1].text_content(),
                 'syntymavuosi' : int(tds[2].text_content()),
                 'maakunta' : tds[3].text_content(),
-                'kokonaistulot' : (tds[4].text_content()),
+                'kokonaistulot' : (tds[4].text_content()).replace(" ",""),
                 'ansiotulot' : (tds[5].text_content()),
                 'paaomatulot' : (tds[6].text_content()),
                 'veroprosentti' : tds[7].text_content(),
